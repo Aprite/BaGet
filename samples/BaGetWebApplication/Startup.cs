@@ -32,19 +32,11 @@ namespace BaGetWebApplication
             app.UseEndpoints(endpoints =>
             {
                 // Add BaGet's endpoints.
-                var api = new BaGetApi();
+                var baget = new BaGetEndpointBuilder();
 
-                api.MapRoutes(endpoints);
+                baget.MapEndpoints(endpoints);
 
-                // Add a "welcome" endpoint to help you find the package source.
-                // This is optional, you can remove this endpoint if you'd like.
-                endpoints.MapGet("/", async context =>
-                {
-                    var url = context.RequestServices.GetRequiredService<IUrlGenerator>();
-                    var packageSource = url.GetServiceIndexUrl();
-
-                    await context.Response.WriteAsync($"Package source URL: '{packageSource}'");
-                });
+                // TODO: Test Razor pages work.
             });
         }
     }

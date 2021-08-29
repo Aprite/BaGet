@@ -1,4 +1,4 @@
-namespace BaGet.Hosting
+namespace BaGet.Web
 {
     public class Routes
     {

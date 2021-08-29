@@ -5,7 +5,7 @@ using BaGet.Core;
 using BaGet.Protocol.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BaGet.Hosting
+namespace BaGet.Web
 {
     /// <summary>
     /// The NuGet Service Index. This aids NuGet client to discover this server's services.

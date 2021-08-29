@@ -1,9 +1,8 @@
 using System;
 using BaGet.Core;
-using BaGet.Hosting;
+using BaGet.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 
 namespace BaGet
 {
@@ -14,6 +13,8 @@ namespace BaGet
             Action<BaGetApplication> configureAction)
         {
             services
+                // TODO: Consider this
+                //.AddRouting(options => options.LowercaseUrls = true)
                 .AddControllers()
                 .AddApplicationPart(typeof(PackageContentController).Assembly)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
@@ -21,6 +22,11 @@ namespace BaGet
                 {
                     options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
+
+            services.AddRazorPages()
+                // TODO: Only add during development, otherwise this adds filewatchers on production
+                // See: https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0&tabs=netcore-cli#conditionally-enable-runtime-compilation-in-an-existing-project-1
+                .AddRazorRuntimeCompilation();
 
             services.AddHttpContextAccessor();
             services.AddTransient<IUrlGenerator, BaGetUrlGenerator>();

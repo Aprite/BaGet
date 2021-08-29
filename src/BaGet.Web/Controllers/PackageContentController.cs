@@ -6,7 +6,7 @@ using BaGet.Protocol.Models;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Versioning;
 
-namespace BaGet.Hosting
+namespace BaGet.Web
 {
     /// <summary>
     /// The Package Content resource, used to download content from packages.

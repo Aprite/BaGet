@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NuGet.Versioning;
 
-namespace BaGet.Hosting
+namespace BaGet.Web
 {
     public class PackagePublishController : Controller
     {

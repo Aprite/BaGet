@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 
-namespace BaGet.Hosting
+namespace BaGet.Web
 {
     public static class IApplicationBuilderExtensions
     {

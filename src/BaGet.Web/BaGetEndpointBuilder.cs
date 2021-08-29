@@ -1,14 +1,16 @@
-using BaGet.Hosting;
+using BaGet.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace BaGet
 {
-    public class BaGetApi
+    public class BaGetEndpointBuilder
     {
-        public void MapRoutes(IEndpointRouteBuilder endpoints)
+        public void MapEndpoints(IEndpointRouteBuilder endpoints)
         {
+            endpoints.MapRazorPages();
+
             MapServiceIndexRoutes(endpoints);
             MapPackagePublishRoutes(endpoints);
             MapSymbolRoutes(endpoints);

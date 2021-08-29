@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using BaGet.Core;
 using Microsoft.AspNetCore.Http;
 
-namespace BaGet.Hosting
+namespace BaGet.Web
 {
     public static class HttpRequestExtensions
     {
