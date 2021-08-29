@@ -1,8 +1,12 @@
 ﻿@page
+@using BaGet.Protocol.Models
 @model IndexModel
 
 @{
     ViewData["Title"] = "Packages";
 }
 
-Hello world
+@foreach (var result in Model.SearchResults.Data)
+{
+    <p>@result.PackageId</p>
+}
