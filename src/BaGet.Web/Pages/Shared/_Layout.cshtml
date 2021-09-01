@@ -1,12 +1,84 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BaGet">
+    <meta name="author" content="Loic Sharma">
+
+    <link rel="stylesheet" href="~/_content/BaGet.Web/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/_content/BaGet.Web/lib/office-ui-fabric-core/dist/css/fabric.min.css" />
+    <link rel="stylesheet" href="~/_content/BaGet.Web/css/site.css" />
+
+    <title>@ViewData["Title"] - BaGet</title>
 </head>
 <body>
+    <header>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">BaGet</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>*@
 
-@RenderBody()
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div id="navbar" class="col-sm-12">
+                        <ul class="nav navbar-nav" role="tablist">
+                            <li role="presentation"><a asp-area="" asp-page="/Index" role="tab" nav-link><span>Packages</span></a></li>
+                            <li role="presentation"><a asp-area="" asp-page="/Upload" role="tab" nav-link><span>Upload</span></a></li>
+                            <li role="presentation">
+                                <a role="tab" href="https://loic-sharma.github.io/BaGet/" target="_blank" rel="noopener noreferrer">
+                                    <span>Documentation</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container search-container">
+                <div class="row">
+                    <form class="col-sm-12">
+                        <input type="text"
+                               class="form-control"
+                               autoComplete="off"
+                               placeholder="Search packages..." />
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
 
+    <section role="main" class="container main-container">
+        @RenderBody()
+    </section>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - BaGet - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+        </footer>*@
+
+    <script src="~/_content/BaGet.Web/lib/alpinejs/dist/alpine.js"></script>
+
+    <script src="~/_content/BaGet.Web/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/_content/BaGet.Web/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/_content/BaGet.Web/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-

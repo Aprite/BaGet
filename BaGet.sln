@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaGet.Protocol.Samples.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaGet.Aliyun", "src\BaGet.Aliyun\BaGet.Aliyun.csproj", "{9F7C4F38-D598-42D9-A9F8-962490483B18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaGetWebApplication", "samples\BaGetWebApplication\BaGetWebApplication.csproj", "{E5AFE55D-0932-46A9-BFA3-C8A034037377}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaGetWebApplication", "samples\BaGetWebApplication\BaGetWebApplication.csproj", "{E5AFE55D-0932-46A9-BFA3-C8A034037377}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
