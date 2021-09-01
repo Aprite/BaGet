@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -21,4 +21,5 @@
   <ItemGroup>
     <ProjectReference Include="..\BaGet.Core\BaGet.Core.csproj" />
   </ItemGroup>
+
 </Project>

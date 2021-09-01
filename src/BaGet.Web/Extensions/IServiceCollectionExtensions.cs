@@ -1,8 +1,13 @@
 using System;
+using System.IO;
 using BaGet.Core;
 using BaGet.Web;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace BaGet
 {
@@ -28,12 +33,33 @@ namespace BaGet
                 // See: https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0&tabs=netcore-cli#conditionally-enable-runtime-compilation-in-an-existing-project-1
                 .AddRazorRuntimeCompilation();
 
+            services.AddSingleton<IConfigureOptions<MvcRazorRuntimeCompilationOptions>, ConfigureRazorRuntimeCompilation>();
+
             services.AddHttpContextAccessor();
             services.AddTransient<IUrlGenerator, BaGetUrlGenerator>();
 
             services.AddBaGetApplication(configureAction);
 
             return services;
+        }
+
+        private class ConfigureRazorRuntimeCompilation : IConfigureOptions<MvcRazorRuntimeCompilationOptions>
+        {
+            private readonly IHostEnvironment _env;
+
+            public ConfigureRazorRuntimeCompilation(IHostEnvironment env)
+            {
+                _env = env ?? throw new ArgumentNullException(nameof(env));
+            }
+
+            public void Configure(MvcRazorRuntimeCompilationOptions options)
+            {
+                // Allow Razor to "hot reload" Razor Pages in this project.
+                var path = Path.Combine(_env.ContentRootPath, "..", "BaGet.Web");
+                var provider = new PhysicalFileProvider(Path.GetFullPath(path));
+
+                options.FileProviders.Add(provider);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@page
+@page
 @using BaGet.Protocol.Models
 @model IndexModel
 
@@ -6,7 +6,14 @@
     ViewData["Title"] = "Packages";
 }
 
+Test
+
+<img src="@Url.Content(@"~/images/default-package-icon-256x256.png")" />
+<img src="@Url.Content(@"~/_content/BaGet.Web/images/default-package-icon-256x256.png")" />
+
 @foreach (var result in Model.SearchResults.Data)
 {
     <p>@result.PackageId</p>
 }
+
+Done!
