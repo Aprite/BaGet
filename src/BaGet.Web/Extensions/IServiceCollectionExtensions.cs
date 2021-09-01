@@ -55,10 +55,13 @@ namespace BaGet
             public void Configure(MvcRazorRuntimeCompilationOptions options)
             {
                 // Allow Razor to "hot reload" Razor Pages in this project.
-                var path = Path.Combine(_env.ContentRootPath, "..", "BaGet.Web");
-                var provider = new PhysicalFileProvider(Path.GetFullPath(path));
+                if (_env.IsDevelopment())
+                {
+                    var path = Path.Combine(_env.ContentRootPath, "..", "BaGet.Web");
+                    var provider = new PhysicalFileProvider(Path.GetFullPath(path));
 
-                options.FileProviders.Add(provider);
+                    options.FileProviders.Add(provider);
+                }
             }
         }
     }
