@@ -86,8 +86,8 @@
         <input
             type="checkbox"
             id="prerelease"
-            @(Model.IncludePrerelease == true ? "checked='checked'" : "")
-            onclick="window.location.href='@SearchLink(includePrelease: !(Model.IncludePrerelease ?? false))'" />
+            @(Model.IncludePrerelease ? "checked='checked'" : "")
+            onclick="window.location.href='@SearchLink(includePrelease: !Model.IncludePrerelease)'" />
     </div>
 </div>
 
@@ -168,7 +168,7 @@ else
         // Remove query parameters that have default value
         if (packageType == string.Empty) packageType = null;
         if (framework == string.Empty) framework = null;
-        if (includePrelease == false) includePrelease = null;
+        if (includePrelease == true) includePrelease = null;
 
         return Url.Page("Index", new
         {

@@ -25,7 +25,7 @@ namespace BaGet.Web
         public string Framework { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public bool? IncludePrerelease { get; set; }
+        public bool IncludePrerelease { get; set; } = true;
 
         public IReadOnlyList<SearchResult> Packages { get; private set; }
 
@@ -36,7 +36,7 @@ namespace BaGet.Web
                 {
                     Skip = 0,
                     Take = 20,
-                    IncludePrerelease = IncludePrerelease ?? true,
+                    IncludePrerelease = IncludePrerelease,
                     IncludeSemVer2 = true,
                     PackageType = PackageType,
                     Framework = Framework,
