@@ -1,8 +1,6 @@
 using BaGet;
-using BaGet.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -27,6 +25,7 @@ namespace BaGetWebApplication
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -36,8 +35,8 @@ namespace BaGetWebApplication
 
                 baget.MapEndpoints(endpoints);
 
-                // TODO: Test Razor pages work.
+
             });
         }
-    }
+    }   // TODO: Test Razor pages work.
 }
