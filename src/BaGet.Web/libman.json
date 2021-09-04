@@ -47,6 +47,17 @@
         "LICENSE.md",
         "README.md"
       ]
+    },
+    {
+      "library": "jquery@3.5.1",
+      "destination": "wwwroot/lib/jquery",
+      "files": [
+        "dist/jquery.js",
+        "dist/jquery.min.js",
+        "AUTHORS.txt",
+        "LICENSE.txt",
+        "README.md"
+      ]
     }
   ]
 }
