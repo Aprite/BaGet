@@ -19,27 +19,30 @@ namespace BaGet.Web
         }
 
         [BindProperty(SupportsGet = true)]
-        public string PackageType { get; set; }
+        public string PackageType { get; set; } = "any";
 
         [BindProperty(SupportsGet = true)]
-        public string Framework { get; set; }
+        public string Framework { get; set; } = "any";
 
         [BindProperty(SupportsGet = true)]
-        public bool IncludePrerelease { get; set; } = true;
+        public bool Prerelease { get; set; } = true;
 
         public IReadOnlyList<SearchResult> Packages { get; private set; }
 
         public async Task OnGetAsync(CancellationToken cancellationToken)
         {
+            var packageType = PackageType == "any" ? null : PackageType;
+            var framework = Framework == "any" ? null : Framework;
+
             var search = await _search.SearchAsync(
                 new SearchRequest
                 {
                     Skip = 0,
                     Take = 20,
-                    IncludePrerelease = IncludePrerelease,
+                    IncludePrerelease = Prerelease,
                     IncludeSemVer2 = true,
-                    PackageType = PackageType,
-                    Framework = Framework,
+                    PackageType = packageType,
+                    Framework = framework,
                     Query = string.Empty // TODO
                 },
                 cancellationToken);
