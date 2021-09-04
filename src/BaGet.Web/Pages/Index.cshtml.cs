@@ -34,8 +34,13 @@ namespace BaGet.Web
             var search = await _search.SearchAsync(
                 new SearchRequest
                 {
+                    Skip = 0,
                     Take = 20,
+                    IncludePrerelease = IncludePrerelease ?? true,
                     IncludeSemVer2 = true,
+                    PackageType = PackageType,
+                    Framework = Framework,
+                    Query = string.Empty // TODO
                 },
                 cancellationToken);
 
