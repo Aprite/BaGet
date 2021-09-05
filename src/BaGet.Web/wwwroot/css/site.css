@@ -129,6 +129,24 @@ h4 {
     border-radius: 0;
 }
 
+.search-container button {
+  height: 34px;
+  color: #fff;
+  background-color: #d87e00;
+  border-color: #bf6f00;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.search-container button:active,
+.search-container button:active:focus,
+.search-container button:active:hover,
+.search-container button:focus,
+.search-container button:hover {
+  background-color: #a56000;
+  border-color: #814b00;
+}
+
 .link-button {
     background-color: transparent;
     border: none;

@@ -34,12 +34,22 @@
             <div class="container search-container">
                 <div class="row">
                     <form class="col-sm-12" action="@Url.Page("/Index")" method="get">
-                        <input type="text"
-                               name="q"
-                               value="@ViewData["SearchQuery"]"
-                               class="form-control"
-                               autoComplete="off"
-                               placeholder="Search packages..." />
+                        <div class="input-group">
+                            <input type="text"
+                                   name="q"
+                                   value="@ViewData["SearchQuery"]"
+                                   class="form-control"
+                                   autoComplete="off"
+                                   placeholder="Search packages..." />
+
+                            <span class="input-group-btn">
+                                <button type="submit"
+                                        class="btn btn-default"
+                                        title="Search for packages">
+                                    <span class="ms-Icon ms-Icon--Search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
 
                         @await RenderSectionAsync("SearchForm", required: false)
                     </form>
