@@ -33,11 +33,15 @@
             </div>
             <div class="container search-container">
                 <div class="row">
-                    <form class="col-sm-12">
+                    <form class="col-sm-12" action="@Url.Page("/Index")" method="get">
                         <input type="text"
+                               name="q"
+                               value="@ViewData["SearchQuery"]"
                                class="form-control"
                                autoComplete="off"
                                placeholder="Search packages..." />
+
+                        @await RenderSectionAsync("SearchForm", required: false)
                     </form>
                 </div>
             </div>

@@ -18,6 +18,9 @@ namespace BaGet.Web
             _search = search ?? throw new ArgumentNullException(nameof(search));
         }
 
+        [BindProperty(Name = "q", SupportsGet = true)]
+        public string Query { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string PackageType { get; set; } = "any";
 
@@ -43,7 +46,7 @@ namespace BaGet.Web
                     IncludeSemVer2 = true,
                     PackageType = packageType,
                     Framework = framework,
-                    Query = string.Empty // TODO
+                    Query = Query,
                 },
                 cancellationToken);
 

@@ -4,6 +4,27 @@
 
 @{
     ViewData["Title"] = "Packages";
+    ViewData["SearchQuery"] = Model.Query;
+}
+
+@section SearchForm
+{
+    @* The search query is in a form in the header. The search filters are bindings on this Razor page.
+    @* Pass the Razor bindings back up to the header's search form. *@
+    @if (Model.PackageType != "any")
+    {
+        <input type="hidden" name="packageType" value="@Model.PackageType" />
+    }
+
+    @if (Model.Framework != "any")
+    {
+        <input type="hidden" name="framework" value="@Model.Framework" />
+    }
+
+    @if (Model.Prerelease != true)
+    {
+        <input type="hidden" name="prerelease" value="False" />
+    }
 }
 
 <div class="search-options form-inline">
@@ -208,6 +229,7 @@ else
 
         return Url.Page("Index", new
         {
+            q = Model.Query,
             packageType,
             framework,
             prerelease,
