@@ -18,8 +18,7 @@ namespace BaGet
             Action<BaGetApplication> configureAction)
         {
             services
-                // TODO: Consider this
-                //.AddRouting(options => options.LowercaseUrls = true)
+                .AddRouting(options => options.LowercaseUrls = true)
                 .AddControllers()
                 .AddApplicationPart(typeof(PackageContentController).Assembly)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
