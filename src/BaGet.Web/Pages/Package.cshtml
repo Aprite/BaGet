@@ -2,8 +2,6 @@
 @model PackageModel
 
 @{
-    var DefaultVisibleVersions = 5;
-
     // TODO: Move these to model.
     var NotFound = false;
 
@@ -70,7 +68,7 @@ else
         <aside class="col-sm-1 package-icon">
             <img src="@Package.Icon"
                  class="img-responsive"
-                 onerror="this.src='@Url.Content("~/images/default-package-icon-256x256.png")'"
+                 onerror="this.src='@Url.Content("~/_content/BaGet.Web/images/default-package-icon-256x256.png")'"
                  alt="The package icon" />
         </aside>
 
@@ -184,7 +182,7 @@ else
             }
         </article>
 
-        <article class="col-sm-3 package-details-info">
+        <aside class="col-sm-3 package-details-info">
             <div>
                 <h2>Info</h2>
 
@@ -201,6 +199,25 @@ else
                             <a href="#">Project URL</a>
                         </li>
                     }
+
+                    @if (true)@* TODO: Has repository URL*@
+                    {
+                        <li>
+                            <img class="icon" aria-hidden="true" alt="GitHub logo" src="@Url.Content("~/_content/BaGet.Web/images/github-32x32.png")" />
+                            <a href="#">Source code</a>
+                        </li>
+                    }
+
+                    @if (true)@* TODO: Has licnese URL*@
+                    {
+                        <li>
+                            <i class="ms-Icon ms-Icon--Certificate"></i>
+                            <a href="#">License</a>
+                        </li>
+                    }
+
+                    @* TODO: Source repository *@
+                    @* TODO: License *@
 
                     <li>
                         <i class="ms-Icon ms-Icon--CloudDownload"></i>
@@ -230,7 +247,7 @@ else
 
                 <p>Author 1, author 2</p>
             </div>
-        </article>
+        </aside>
     </div>
 }
 
@@ -256,6 +273,9 @@ else
 </script>
 
 @functions {
+
+    private const int DefaultVisibleVersions = 5;
+
     private void ExpandableSection(string title, bool expanded, Func<object, IHtmlContent> template)
     {
         <div class="expandable-section" x-data="{ expanded: @Json.Serialize(expanded) }">
